@@ -1,5 +1,7 @@
-version: 1.0.1
+version: 1.0.2
 commit: Bump to version v%.%.%
 files:
-  README.md: v%.%.%
+  README.md:
+    - mux_async_iterable v%.%.%
+    - 'https://deno.land/x/mux_async_iterable@v%.%.%/mod.ts'
   package.json: '"version": "%.%.%"'
