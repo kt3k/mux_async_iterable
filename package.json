@@ -1,5 +1,5 @@
 {
-  "name": "mux-async-iterator",
+  "name": "mux-async-iterable",
   "version": "1.0.0",
   "description": "Multiplexer of async iterators for JavaScript",
   "main": "dist/mod.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kt3k/mux-async-iterator.git"
+    "url": "git+https://github.com/kt3k/mux_async_iterable.git"
   },
   "keywords": [
     "async",
@@ -18,9 +18,9 @@
   "author": "Yoshiya Hinosawa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kt3k/mux-async-iterator/issues"
+    "url": "https://github.com/kt3k/mux_async_iterable/issues"
   },
-  "homepage": "https://github.com/kt3k/mux-async-iterator#readme",
+  "homepage": "https://github.com/kt3k/mux_async_iterable#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
     "typescript": "^3.7.5"

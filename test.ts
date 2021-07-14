@@ -1,9 +1,7 @@
 // Copyright 2020 Yoshiya Hinosawa. All rights reserved. MIT license.
 import {
-  test,
   assertEquals,
-  assertThrowsAsync
-} from "https://deno.land/std/testing/mod.ts";
+} from "https://deno.land/std@0.101.0/testing/asserts.ts";
 import { mux } from "./mod.ts";
 
 function defer(n: number) {
@@ -37,7 +35,7 @@ async function* baz() {
   yield 90;
 }
 
-test("mux returns an async iterator that merges the given async iterators.", async () => {
+Deno.test("mux returns an async iterator that merges the given async iterators.", async () => {
   const iter = mux(foo(), bar(), baz());
   assertEquals(await iter.next(), { done: false, value: 10 });
   assertEquals(await iter.next(), { done: false, value: 20 });
@@ -49,20 +47,4 @@ test("mux returns an async iterator that merges the given async iterators.", asy
   assertEquals(await iter.next(), { done: false, value: 80 });
   assertEquals(await iter.next(), { done: false, value: 90 });
   assertEquals(await iter.next(), { done: true, value: undefined });
-});
-
-test("mux returns an promise which resolves with the first item from the merged async iterators.", async () => {
-  const iter = mux(foo(), bar(), baz());
-  assertEquals(await iter, 10);
-  assertEquals(await iter, 20);
-  assertEquals(await iter, 30);
-  assertEquals(await iter, 40);
-  assertEquals(await iter, 50);
-  assertEquals(await iter, 60);
-  assertEquals(await iter, 70);
-  assertEquals(await iter, 80);
-  assertEquals(await iter, 90);
-  assertThrowsAsync(async () => {
-    await iter;
-  });
 });

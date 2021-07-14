@@ -1,4 +1,4 @@
-const { mux } = require("mux-async-iterator");
+const { mux } = require("mux-async-iterable");
 const assert = require("assert")
 
 function defer(n) {

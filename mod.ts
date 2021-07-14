@@ -3,11 +3,11 @@
 /** Returns an async iterator which merges the given async iterators. */
 export function mux<T>(
   ...iters: AsyncIterator<T>[]
-): AsyncIterableIterator<T> & PromiseLike<T> {
-  return new MuxAsyncIterator<T>(iters);
+): AsyncIterableIterator<T> {
+  return new MuxAsyncIterable<T>(iters);
 }
 
-class MuxAsyncIterator<T> implements AsyncIterableIterator<T>, PromiseLike<T> {
+class MuxAsyncIterable<T> implements AsyncIterable<T> {
   private nexts: Promise<IteratorResult<T>>[];
   constructor(private iters: AsyncIterator<T>[]) {
     this.nexts = this.iters.map(iter => iter.next());
@@ -41,23 +41,5 @@ class MuxAsyncIterator<T> implements AsyncIterableIterator<T>, PromiseLike<T> {
 
   [Symbol.asyncIterator](): AsyncIterableIterator<T> {
     return this;
-  }
-
-  async then<S, P>(
-    f: (t: T) => S | Promise<S>,
-    g?: (e: Error) => P | Promise<P>
-  ): Promise<S | P> {
-    const { done, value } = await this.next();
-    if (!done) {
-      return f(value);
-    }
-
-    const e = new Error("All async iterators have already been finished.");
-
-    if (g) {
-      return g(e);
-    }
-
-    throw e;
   }
 }

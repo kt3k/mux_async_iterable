@@ -1,6 +1,6 @@
-# mux-async-iterator v1.0.0
+# mux_async_iterable v1.0.0
 
-> Multiplexer of async iterators for JavaScript
+> Multiplexer of async iterables for JavaScript
 
 # Usage
 
@@ -15,7 +15,7 @@ mux(foo(), bar(), baz()) // => returns merged async iterator of foo(), bar(), an
 Node:
 
 ```js
-const { mux } = require("mux-async-iterator");
+const { mux } = require("mux-async-iterable");
 
 mux(foo(), bar(), baz()) // => returns merged async iterator of foo(), bar(), and baz()
 ```
