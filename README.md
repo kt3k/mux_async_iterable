@@ -1,4 +1,4 @@
-# mux_async_iterable v1.0.0
+# mux_async_iterable v1.0.1
 
 > Multiplexer of async iterables for JavaScript
 
