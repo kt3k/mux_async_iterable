@@ -2,7 +2,7 @@
   "name": "mux-async-iterable",
   "version": "1.0.3",
   "description": "Multiplexer of async iterators for JavaScript",
-  "main": "dist/mod.js",
+  "main": "dist/mod.mjs",
   "scripts": {
     "test": "deno test -A test.ts",
     "dist": "deno bundle mod.ts > dist/mod.mjs",
