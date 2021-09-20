@@ -4,7 +4,9 @@
   "description": "Multiplexer of async iterators for JavaScript",
   "main": "dist/mod.js",
   "scripts": {
-    "test": "deno test -A test.ts"
+    "test": "deno test -A test.ts",
+    "dist": "deno bundle mod.ts > dist/mod.mjs",
+    "prepublish": "npm run dist"
   },
   "repository": {
     "type": "git",
