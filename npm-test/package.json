@@ -8,6 +8,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mux-async-iterator": "^1.0.0"
+    "mux-async-iterable": "^1.0.0"
   }
 }

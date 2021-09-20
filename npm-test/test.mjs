@@ -1,5 +1,5 @@
-const { mux } = require("mux-async-iterable");
-const assert = require("assert");
+import { mux } from "mux-async-iterable";
+import assert from "assert";
 
 function defer(n) {
   return new Promise((resolve, _) => setTimeout(resolve, n));
@@ -44,6 +44,7 @@ async function test() {
   assert.deepStrictEqual(await iter.next(), { done: false, value: 80 });
   assert.deepStrictEqual(await iter.next(), { done: false, value: 90 });
   assert.deepStrictEqual(await iter.next(), { done: true, value: undefined });
+  console.log("success")
 }
 
 test();
