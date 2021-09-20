@@ -1,4 +1,4 @@
-# mux_async_iterable v1.0.3
+# mux_async_iterable v1.0.4
 
 > Multiplexer of async iterables for JavaScript
 
@@ -7,7 +7,7 @@
 Deno:
 
 ```ts
-import { mux } from "https://deno.land/x/mux_async_iterable@v1.0.3/mod.ts";
+import { mux } from "https://deno.land/x/mux_async_iterable@v1.0.4/mod.ts";
 
 mux(foo(), bar(), baz()); // => returns merged async iterator of foo(), bar(), and baz()
 ```
