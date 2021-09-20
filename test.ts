@@ -1,7 +1,5 @@
 // Copyright 2020 Yoshiya Hinosawa. All rights reserved. MIT license.
-import {
-  assertEquals,
-} from "https://deno.land/std@0.101.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.101.0/testing/asserts.ts";
 import { mux } from "./mod.ts";
 
 function defer(n: number) {

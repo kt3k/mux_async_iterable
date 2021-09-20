@@ -10,16 +10,16 @@ export function mux<T>(
 class MuxAsyncIterable<T> implements AsyncIterable<T> {
   private nexts: Promise<IteratorResult<T>>[];
   constructor(private iters: AsyncIterator<T>[]) {
-    this.nexts = this.iters.map(iter => iter.next());
+    this.nexts = this.iters.map((iter) => iter.next());
   }
 
   async next(): Promise<IteratorResult<T>> {
     while (this.iters.length > 0) {
       const { next } = await Promise.race(
-        this.nexts.map(async next => {
+        this.nexts.map(async (next) => {
           await next;
           return { next };
-        })
+        }),
       );
       const i = this.nexts.indexOf(next);
       const res = await next;
