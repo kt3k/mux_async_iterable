@@ -1,5 +1,5 @@
 const { mux } = require("mux-async-iterable");
-const assert = require("assert")
+const assert = require("assert");
 
 function defer(n) {
   return new Promise((resolve, _) => setTimeout(resolve, n));
@@ -33,17 +33,17 @@ async function* baz() {
 }
 
 async function test() {
-  const iter = mux(foo(), bar(), baz())
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 10 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 20 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 30 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 40 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 50 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 60 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 70 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 80 })
-  assert.deepStrictEqual(await iter.next(), { done: false, value: 90 })
-  assert.deepStrictEqual(await iter.next(), { done: true, value: undefined })
+  const iter = mux(foo(), bar(), baz());
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 10 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 20 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 30 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 40 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 50 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 60 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 70 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 80 });
+  assert.deepStrictEqual(await iter.next(), { done: false, value: 90 });
+  assert.deepStrictEqual(await iter.next(), { done: true, value: undefined });
 }
 
-test()
+test();
